@@ -1,5 +1,5 @@
 {% set name = "napari-wsi" %}
-{% set version = "0.1.0" %}
+{% set version = "0.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari_wsi-{{ version }}.tar.gz
-  sha256: d9ced0caac3707ee826fb4e8d92b56b46c5f2e084451cf8caf9fe27db892f7f4
+  sha256: 8e7bbf5c1e8d64ecebfe079bb8e29d31710c07c87b038a7654ef157138ecaf7c
 
 build:
   noarch: python
