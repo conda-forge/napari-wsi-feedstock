@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set name = "napari-wsi" %}
 {% set version = "0.1.4" %}
 
@@ -6,19 +7,19 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari_wsi-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/napari_wsi-{{ version }}.tar.gz
   sha256: eaf1271b93aba97b6c50664b0bc5fa4f0489a46a302b8043b09d3af651d92557
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
     - poetry-core
-    - python >=3.10,<3.12
+    - python {{ python_min }}
   run:
     - dask >=2023
     - imagecodecs >=2023.9.18
@@ -26,7 +27,7 @@ requirements:
     - matplotlib-base >=3.8
     - napari >=0.4.18
     - numpy >=1.26
-    - python >=3.10,<3.12
+    - python >={{ python_min }},<3.12
     - rasterio >=1.3
     - tifffile >=2023
     - zarr >=2.16
@@ -39,6 +40,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/AstraZeneca/napari-wsi
