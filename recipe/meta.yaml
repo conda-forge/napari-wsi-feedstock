@@ -13,7 +13,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -24,13 +24,13 @@ requirements:
     - dask >=2025.1
     - magicgui >=0.10
     - numpy >=1.26
-    # - openslide >=4.0
-    # - openslide-python >=1.4
+    - openslide >=4.0
+    - openslide-python >=1.4
     - pillow >=11.1
     - python >={{ python_min }}
-    # - rasterio >=1.4
+    - rasterio >=1.4
     - universal_pathlib >=0.2
-    # - wsidicom >=0.22
+    - wsidicom >=0.22
     - zarr >=3.0
 
 test:
