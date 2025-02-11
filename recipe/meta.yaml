@@ -21,14 +21,17 @@ requirements:
     - hatchling
     - python {{ python_min }}
   run:
+    - colorspacious >=1.1.2
     - dask >=2025.1
     - magicgui >=0.10
     - numpy >=1.26
     - openslide >=4.0
     - openslide-python >=1.4
+    - pandas >=2.0
     - pillow >=11.1
     - python >={{ python_min }}
     - rasterio >=1.4
+    - shapely >=2.0
     - universal_pathlib >=0.2
     - wsidicom >=0.22
     - zarr >=3.0
