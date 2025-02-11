@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "napari-wsi" %}
-{% set version = "1.0.0" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/napari_wsi-{{ version }}.tar.gz
-  sha256: 98f5962c81f363196fc4b964c34acf645ca57ebae998452f9eca5bd0fb6da776
+  sha256: 0839da85aa6f71e907ec2029065cc6e49d965b5b0f3e102c704afed7f67b0385
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -21,14 +21,17 @@ requirements:
     - hatchling
     - python {{ python_min }}
   run:
+    - colorspacious >=1.1.2
     - dask >=2025.1
     - magicgui >=0.10
     - numpy >=1.26
     - openslide >=4.0
     - openslide-python >=1.4
+    - pandas >=2.0
     - pillow >=11.1
     - python >={{ python_min }}
     - rasterio >=1.4
+    - shapely >=2.0
     - universal_pathlib >=0.2
     - wsidicom >=0.22
     - zarr >=3.0
