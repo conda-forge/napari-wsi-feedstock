@@ -33,7 +33,10 @@ requirements:
     - rasterio >=1.4
     - shapely >=2.0
     - typing-extensions >=4.6.1
-    - universal_pathlib >=0.2
+    # We need to add an upper limit for universal_pathlib here because the wsidicom recipe is missing it, see:
+    # https://github.com/imi-bigpicture/wsidicom/blob/9c2ba2b1468d4c23715dac9543c617726ac53c99/pyproject.toml#L30
+    # https://github.com/conda-forge/wsidicom-feedstock/blob/72785b0ba3e5c33a63199fc29b2c03eb81e16ffd/recipe/meta.yaml#L33
+    - universal_pathlib >=0.2,<0.3
     - wsidicom >=0.22
     - zarr >=3.0
 
