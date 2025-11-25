@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "napari-wsi" %}
-{% set version = "1.2.1" %}
+{% set version = "1.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/napari_wsi-{{ version }}.tar.gz
-  sha256: 108182561e6306cc35f694cbf5be10eca38de251a74ae1b3834231f80bb0a925
+  sha256: 5f3a6f97ffa0f0821a23d6a31d9c63b726f303b12abcb96aa493cc011ea02bb4
 
 build:
   noarch: python
@@ -33,7 +33,10 @@ requirements:
     - rasterio >=1.4
     - shapely >=2.0
     - typing-extensions >=4.6.1
-    - universal_pathlib >=0.2
+    # We need to add an upper limit for universal_pathlib here because the wsidicom recipe is missing it, see:
+    # https://github.com/imi-bigpicture/wsidicom/blob/9c2ba2b1468d4c23715dac9543c617726ac53c99/pyproject.toml#L30
+    # https://github.com/conda-forge/wsidicom-feedstock/blob/72785b0ba3e5c33a63199fc29b2c03eb81e16ffd/recipe/meta.yaml#L33
+    - universal_pathlib >=0.2,<0.3
     - wsidicom >=0.22
     - zarr >=3.0
 
